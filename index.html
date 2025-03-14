@@ -19,18 +19,38 @@
   <body>
     <header>
       <nav
-        class="w-11/12 mx-auto flex justify-between items-center py-6 border-b-1 border-gray-300"
+        class="w-11/12 mx-auto flex justify-between items-center py-6 border-b-1 border-[rgba(23,23,23,0.2)]"
       >
         <div class="logo">
-          <img src="./Assets/Logo.png" alt="logo" />
+          <img class="w-[120px]" src="./Assets/Logo.png" alt="logo" />
         </div>
         <div class="sort">
-          <button class="btn">Sort by View</button>
+          <button class="btn text-xl">Sort by View</button>
         </div>
         <div class="blog">
-          <button class="btn">Blogs</button>
+          <button
+            class="btn text-xl bg-[#FF1F3D] text-white rounded-lg border-none"
+          >
+            Blogs
+          </button>
         </div>
       </nav>
     </header>
+
+    <div
+      id="category-container"
+      class="flex justify-center items-center gap-4 py-5"
+    >
+      <div>
+        <button
+          class="btn btn-sm text-lg hover:bg-[#FF1F3D] hover:text-white py-5 px-4"
+        >
+          All
+        </button>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="./script/index.js"></script>
   </body>
 </html>
