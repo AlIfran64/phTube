@@ -15,8 +15,23 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome Cdn -->
+    <script
+      src="https://kit.fontawesome.com/054c069e49.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Style -->
+    <style>
+      .active {
+        background-color: #ff1f3d;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <!-- Header Start -->
     <header>
       <nav
         class="w-11/12 mx-auto flex justify-between items-center py-6 border-b-1 border-[rgba(23,23,23,0.2)]"
@@ -24,31 +39,97 @@
         <div class="logo">
           <img class="w-[120px]" src="./Assets/Logo.png" alt="logo" />
         </div>
-        <div class="sort">
-          <button class="btn text-xl">Sort by View</button>
+
+        <!-- Search -->
+        <div class="search">
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50 text-xl"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              id="search-input"
+              type="search"
+              required
+              placeholder="Search"
+            />
+          </label>
         </div>
-        <div class="blog">
+        <div class="sort">
           <button
             class="btn text-xl bg-[#FF1F3D] text-white rounded-lg border-none"
           >
-            Blogs
+            Sort by View
           </button>
         </div>
       </nav>
-    </header>
 
-    <div
-      id="category-container"
-      class="flex justify-center items-center gap-4 py-5"
-    >
-      <div>
-        <button
-          class="btn btn-sm text-lg hover:bg-[#FF1F3D] hover:text-white py-5 px-4"
-        >
-          All
-        </button>
+      <!-- Header btn -->
+      <div
+        id="category-container"
+        class="flex justify-center items-center gap-4 py-5 my-5"
+      >
+        <div>
+          <button
+            id="btn-all"
+            class="btn btn-sm text-lg hover:bg-[#FF1F3D] hover:text-white py-5 px-4"
+            onclick="loadVideos()"
+          >
+            All
+          </button>
+        </div>
       </div>
-    </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main Start -->
+    <main>
+      <!-- Section-1 -->
+      <section id="loader" class="text-center py-10 hidden">
+        <span class="loading loading-dots loading-xl"></span>
+      </section>
+      <!-- Section-2 -->
+      <section
+        id="video-container"
+        class="w-11/12 mx-auto grid grid-cols-4 justify-center items-center gap-5"
+      >
+        <div class="col-span-full py-10 px-10 mt-10 space-y-5">
+          <img class="mx-auto" src="./Assets/Icon.png" alt="" />
+          <h2 class="text-2xl font-bold text-center">
+            Oops!! Sorry, There is no content here
+          </h2>
+        </div>
+      </section>
+    </main>
+    <!-- Main End -->
+
+    <!-- Modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+      <div class="modal-box">
+        <div id="details-container"></div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <!-- Script -->
     <script src="./script/index.js"></script>
